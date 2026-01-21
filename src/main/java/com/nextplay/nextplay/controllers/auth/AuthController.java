@@ -1,10 +1,10 @@
-package com.nextplay.nextplay.controllers;
+package com.nextplay.nextplay.controllers.auth;
 
-import com.nextplay.nextplay.dtos.request.UserLoginRequest;
-import com.nextplay.nextplay.dtos.request.UserRegisterRequest;
-import com.nextplay.nextplay.dtos.response.UserLoginResponse;
-import com.nextplay.nextplay.dtos.response.UserRegisterResponse;
-import com.nextplay.nextplay.services.AuthService;
+import com.nextplay.nextplay.dtos.request.auth.UserLoginRequest;
+import com.nextplay.nextplay.dtos.request.auth.UserRegisterRequest;
+import com.nextplay.nextplay.dtos.response.auth.UserLoginResponse;
+import com.nextplay.nextplay.dtos.response.auth.UserRegisterResponse;
+import com.nextplay.nextplay.services.auth.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

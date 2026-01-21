@@ -1,20 +1,16 @@
-package com.nextplay.nextplay.services;
+package com.nextplay.nextplay.services.auth;
 
-import com.nextplay.nextplay.dtos.request.UserLoginRequest;
-import com.nextplay.nextplay.dtos.request.UserRegisterRequest;
-import com.nextplay.nextplay.dtos.response.UserLoginResponse;
-import com.nextplay.nextplay.dtos.response.UserRegisterResponse;
+import com.nextplay.nextplay.dtos.request.auth.UserLoginRequest;
+import com.nextplay.nextplay.dtos.request.auth.UserRegisterRequest;
+import com.nextplay.nextplay.dtos.response.auth.UserLoginResponse;
+import com.nextplay.nextplay.dtos.response.auth.UserRegisterResponse;
 import com.nextplay.nextplay.entities.UserEntity;
 import com.nextplay.nextplay.exceptions.ConflictException;
 import com.nextplay.nextplay.exceptions.NotFoundException;
-import com.nextplay.nextplay.mappers.UserMapper;
 import com.nextplay.nextplay.repositories.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.nextplay.nextplay.services;
+package com.nextplay.nextplay.services.auth;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -27,7 +27,6 @@ public class TokenService {
             return JWT.create()
                     .withIssuer("nextplay")
                     .withSubject(userEntity.getEmail())
-                    .withSubject(userEntity.getRole().name())
                     .withExpiresAt(getInstantNow().plusSeconds(jwtExpiration))
                     .sign(algorithm);
         }

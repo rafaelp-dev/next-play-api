@@ -1,4 +1,4 @@
-package com.nextplay.nextplay.dtos.request;
+package com.nextplay.nextplay.dtos.request.auth;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

@@ -1,9 +1,8 @@
 package com.nextplay.nextplay.config;
 
 import com.auth0.jwt.exceptions.JWTCreationException;
-import com.nextplay.nextplay.services.AuthService;
-import com.nextplay.nextplay.services.AuthenticationService;
-import com.nextplay.nextplay.services.TokenService;
+import com.nextplay.nextplay.services.auth.AuthenticationService;
+import com.nextplay.nextplay.services.auth.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
