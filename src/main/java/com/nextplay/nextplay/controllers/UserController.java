@@ -47,4 +47,11 @@ public class UserController {
 
         return ResponseEntity.ok().body(listGameResponses);
     }
+
+    @GetMapping("/list-favorite-games")
+    public ResponseEntity<List<ListGameResponse>> listFavoriteGames (Authentication authentication) {
+        List<ListGameResponse> listGameResponses = gameService.listFavoriteGames(authentication);
+
+        return ResponseEntity.ok().body(listGameResponses);
+    }
 }

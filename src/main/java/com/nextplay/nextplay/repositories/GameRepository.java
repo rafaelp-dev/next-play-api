@@ -8,4 +8,7 @@ import java.util.List;
 public interface GameRepository extends JpaRepository <GameEntity, Long> {
 
     List<GameEntity> findByProfileProfileId(Long profileId);
+
+    List<GameEntity> findByFavoriteTrue();
+
 }

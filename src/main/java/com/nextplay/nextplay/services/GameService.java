@@ -64,4 +64,21 @@ public class GameService {
                 .map(gameMapper::toListGameResponse)
                 .toList();
     }
+
+    public List<ListGameResponse> listFavoriteGames (Authentication authentication) {
+        String email = authentication.getName();
+
+        UserEntity userEntity = userRepository.findByEmail(email)
+                .orElseThrow(() -> new NotFoundException("Usuário não cadastrado."));
+
+        UserProfileEntity userProfileEntity = userProfileRepository.findByUserUserId(userEntity.getUserId())
+                .orElseThrow(() -> new NotFoundException("Perfil de usuário não cadastrado."));
+
+        List<GameEntity> listFavoriteGames = gameRepository.findByFavoriteTrue();
+
+        return listFavoriteGames
+                .stream()
+                .map(gameMapper::toListGameResponse)
+                .toList();
+    }
 }

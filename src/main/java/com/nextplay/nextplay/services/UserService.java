@@ -32,4 +32,8 @@ public class UserService {
     public List<ListGameResponse> listUserGames (Authentication authentication) {
         return gameService.listUserGames(authentication);
     }
+
+    public List<ListGameResponse> listFavoriteGames (Authentication authentication) {
+        return gameService.listFavoriteGames(authentication);
+    }
 }
