@@ -3,7 +3,7 @@ package com.nextplay.nextplay.enums;
 import lombok.Getter;
 
 @Getter
-public enum GameStatusEnum {
+public enum GameStatus {
     NA_LISTA,
     JOGANDO,
     FINALIZADO,

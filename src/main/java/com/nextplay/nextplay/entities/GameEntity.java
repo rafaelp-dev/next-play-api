@@ -1,6 +1,6 @@
 package com.nextplay.nextplay.entities;
 
-import com.nextplay.nextplay.enums.GameStatusEnum;
+import com.nextplay.nextplay.enums.GameStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,7 +25,7 @@ public class GameEntity {
     private String title;
 
     @Column(nullable = false)
-    private GameStatusEnum status;
+    private GameStatus status;
 
     @Column(nullable = false)
     private Boolean favorite;
@@ -41,7 +41,7 @@ public class GameEntity {
 
     public GameEntity () {}
 
-    public GameEntity(UserProfileEntity profile, String title, GameStatusEnum status, Boolean favorite, Long rating, String review) {
+    public GameEntity(UserProfileEntity profile, String title, GameStatus status, Boolean favorite, Long rating, String review) {
         this.profile = profile;
         this.title = title;
         this.status = status;
