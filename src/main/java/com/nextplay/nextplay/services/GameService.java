@@ -2,6 +2,7 @@ package com.nextplay.nextplay.services;
 
 import com.nextplay.nextplay.dtos.request.GameRequest;
 import com.nextplay.nextplay.dtos.response.GameResponse;
+import com.nextplay.nextplay.dtos.response.ListGameResponse;
 import com.nextplay.nextplay.entities.GameEntity;
 import com.nextplay.nextplay.entities.UserEntity;
 import com.nextplay.nextplay.entities.UserProfileEntity;
@@ -12,6 +13,8 @@ import com.nextplay.nextplay.repositories.UserProfileRepository;
 import com.nextplay.nextplay.repositories.UserRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class GameService {
@@ -43,5 +46,22 @@ public class GameService {
         return new GameResponse(
                 "Jogo adicionado com sucesso!"
         );
+    }
+
+    public List<ListGameResponse> listUserGames (Authentication authentication) {
+        String email = authentication.getName();
+
+        UserEntity userEntity = userRepository.findByEmail(email)
+                .orElseThrow(() -> new NotFoundException("Usuário não cadastrado."));
+
+        UserProfileEntity userProfileEntity = userProfileRepository.findByUserUserId(userEntity.getUserId())
+                .orElseThrow(() -> new NotFoundException("Perfil de usuário não cadastrado."));
+
+        List<GameEntity> gameList = gameRepository.findByProfileProfileId(userProfileEntity.getProfileId());
+
+        return gameList
+                .stream()
+                .map(gameMapper::toListGameResponse)
+                .toList();
     }
 }

@@ -3,6 +3,7 @@ package com.nextplay.nextplay.controllers;
 import com.nextplay.nextplay.dtos.request.GameRequest;
 import com.nextplay.nextplay.dtos.request.UserProfileRequest;
 import com.nextplay.nextplay.dtos.response.GameResponse;
+import com.nextplay.nextplay.dtos.response.ListGameResponse;
 import com.nextplay.nextplay.dtos.response.UserProfileResponse;
 import com.nextplay.nextplay.services.GameService;
 import com.nextplay.nextplay.services.UserService;
@@ -10,10 +11,9 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -39,5 +39,12 @@ public class UserController {
         GameResponse gameResponse = gameService.addGame(authentication, gameRequest);
 
         return ResponseEntity.ok().body(gameResponse);
+    }
+
+    @GetMapping("/list-all-games")
+    public ResponseEntity<List<ListGameResponse>> listUserGames (Authentication authentication) {
+        List<ListGameResponse> listGameResponses = gameService.listUserGames(authentication);
+
+        return ResponseEntity.ok().body(listGameResponses);
     }
 }
