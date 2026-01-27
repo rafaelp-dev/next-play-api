@@ -23,7 +23,7 @@ public class UserProfileEntity {
     @Column(nullable = false)
     private String displayName;
 
-    @Column(nullable = false)
+    @Column
     private LocalDateTime createdAt;
 
     public UserProfileEntity () {}
