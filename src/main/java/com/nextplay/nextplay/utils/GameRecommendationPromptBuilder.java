@@ -40,7 +40,7 @@ public class GameRecommendationPromptBuilder {
                   "recommendations": [
                     {
                       "title": "Nome do jogo",
-                      "reason": "Justificativa breve e objetiva",
+                      "reason": "Justificativa breve e objetiva em português",
                       "similarityLevel": "alta | media | baixa",
                       "platform": ["PC", "PlayStation", "Xbox", "Nintendo Switch"]
                     }
