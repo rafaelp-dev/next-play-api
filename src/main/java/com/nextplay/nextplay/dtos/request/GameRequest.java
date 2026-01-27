@@ -16,8 +16,7 @@ public record GameRequest(
         @NotNull(message = "O campo favorito é obrigatório.")
         Boolean favorite,
 
-        @Min(value = 1, message = "A avaliação mínima é 1.")
-        @Min(value = 5, message = "A avaliação máxima é 5.")
+        @NotNull(message = "A nota do jogo é obrigatória.")
         Long rating,
 
         String review
