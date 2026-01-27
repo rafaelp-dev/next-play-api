@@ -74,7 +74,7 @@ public class GameService {
         UserProfileEntity userProfileEntity = userProfileRepository.findByUserUserId(userEntity.getUserId())
                 .orElseThrow(() -> new NotFoundException("Perfil de usuário não cadastrado."));
 
-        List<GameEntity> listFavoriteGames = gameRepository.findByFavoriteTrue();
+        List<GameEntity> listFavoriteGames = gameRepository.findByProfileProfileIdAndFavorite(userProfileEntity.getProfileId(), true);
 
         return listFavoriteGames
                 .stream()

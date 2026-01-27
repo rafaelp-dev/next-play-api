@@ -11,4 +11,5 @@ public interface GameRepository extends JpaRepository <GameEntity, Long> {
 
     List<GameEntity> findByFavoriteTrue();
 
+    List<GameEntity> findByProfileProfileIdAndFavorite(Long profileId, boolean favorite);
 }
